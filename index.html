@@ -1,17 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	  <head>
-		      <meta charset="UTF-8">    <title>Capain Planet: The Game</title>
-		          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7./css/font-aesome.min.css">
-			      !-- Bootstrap Fil -->
-			          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/ootstrap/4.0.0/css/bootstap.min.css">
+<head>
+	<meta charset="UTF-8">
+	<title>NFL Trivia Game</title>
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<!--Reset CSS Link-->
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+	<!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
+
+	<!-- Added a link to our external stylesheet-->
+	<link rel="stylesheet" href="assets/css/style.css">
+
+
+</head>
+
+<body>
+	<div class="container">
+		<div id="start-block">
+			<div class="row">
+				<div class="col-lg-4 offset-lg-4">
+					<h1 class="maintitle">NFL Trivia!</h1>
+					<button type="button" class="btn btn-primary btn-lg btn-block" id="start">Start</button>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h5 class="time-left"></h5>
+				<h3 class="question"></h3>
+				<div id="options"></div>
+				<div id="status"></div>
+				<div id="image"></div>
+				<p id="wins"></p>
+				<p id="losses"></p>
+			</div>
+		</div>
+	</div>
+
+	<!--<div id="redo-block">
+		<div class="row">
+			<div class="col-lg-4 offset-lg-4 text-center">
+				<button type="button" class="btn btn-primary btn-lg btn-block" id="start-over">Start
+					Over?</button>
+			</div>
+		</div>
+	</div>-->
 
 
 
-				      <!-- JQuery -->
-				          <script src="https://code.jquery.com/jquery.js"></script>
 
-					    </head>
 
-					      <body>"
+
+
+
+	<!-- Adds a link to the JavaScript file. -->
+	<!-- Bootstrap File -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="assets/javascript/app.js"></script>
+</body>
+
+</html>
