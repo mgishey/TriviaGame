@@ -4,7 +4,7 @@ $(document).ready(function () {
     var wrongTotal = 0
     var unansweredTotal = 0;
     var correctAnswer;
-    var timeRemaining = 16;
+    var timeRemaining = 10;
     var intervalID;
     var answered = false; //variable to stop the timer if user has clicked an answer
     var indexQs = 0;
@@ -18,9 +18,6 @@ $(document).ready(function () {
         unanswered = 0;
         loadQuestions();
     });
-
-
-
 
     var gameObj = [
         {
@@ -88,7 +85,7 @@ $(document).ready(function () {
 
     function loadQuestions() {
         answered = false; // will allow timeRemaining to be pushed back to <h5> after round reset....else statement in function timer()
-        timeRemaining = 16;
+        timeRemaining = 10;
         intervalID = setInterval(timer, 1000);
         if (answered === false) {
             timer();
@@ -98,7 +95,7 @@ $(document).ready(function () {
         $(".question").html(question);
         for (var i = 0; i < 4; i++) {
             var option = gameObj[indexQs].options[i];
-            $("#options").append("<h4 class=answersAll id=" + i + ">" + option + "</h4>");
+            $("#options").append("<h4 class=optionsAll id=" + i + ">" + option + "</h4>");
         }
 
         $("h4").click(function () {
@@ -140,21 +137,21 @@ $(document).ready(function () {
     }
 
     function reset() {
-        $('.answersAll').remove();
-        console.log("Image to be loaded: " + gameObj[indexQs].image);
+        $('.optionsAll').remove();
+        //console.log("Image to be loaded: " + gameObj[indexQs].image);
         $("#image").append('<img class=footballImage src="' + gameObj[indexQs].image + '">');
         indexQs++; // increments index which will load next question when loadQandA() is called again
         if (indexQs < gameObj.length) {
             setTimeout(function () {
                 loadQuestions();
-                $(".footballImage").remove();
-            }, 5000); // removes answer image from previous round
+                $("#image").empty();
+            }, 3000); // removes answer image from previous round
         } else {
             setTimeout(function () {
-                $(".question").remove();
-                $("#options").remove();
-                $(".time-left").remove();
-                $(".footballImage").remove();
+                $(".question").empty();
+                $("#options").empty();
+                $(".time-left").empty();
+                $("#image").empty();
                 $("#status").append("<h5>All Done! Here are your results:</h5>");
                 $("#status").append('<h5>Correct Answers: ' + correctTotal + '</h5>');
                 $("#status").append('<h5>Incorrect Answers: ' + wrongTotal + '</h5>');
@@ -170,11 +167,22 @@ $(document).ready(function () {
                 } else if (correctTotal === 6) {
                     $("#status").append("<h3>You have been put on the practice squad!</h3>");
                 } else {
-                    $("#status").append("<h3>Not good enough. You have been cut from the team</h3>!");
+                    $("#status").append("<h3>Not good enough. You have been cut from the team!</h3>");
                 }
                 setTimeout(function () {
-                    location.reload();
-                }, 7000);
+                    $(".done").text("Start Over?")
+                    $(".done").click(function () {
+                        $("#status").empty();
+                        correctTotal = 0;
+                        wrongTotal = 0
+                        unansweredTotal = 0;
+                        correctAnswer = "";
+                        answered = false;
+                        indexQs = 0;
+                        $(".done").empty();
+                        loadQuestions();
+                    });
+                }, 2000);
             }, 5000);
         }
     };

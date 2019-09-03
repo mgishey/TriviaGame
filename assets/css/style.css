@@ -7,13 +7,15 @@ body {
 .container {
     text-align: center;
     width: 960px;
+    height: 560px;
     background-color: lightgrey;
     margin-top: 25px;
     margin-bottom: 25px;
 }
 
 #start {
-    margin: 320px 0 480px 0;
+    margin-top: 200px;
+    margin-bottom: 240px;
 }
 
 button {
@@ -26,7 +28,26 @@ h4
   font-size: 40px;
   text-align: center;
   margin-bottom: 25px;
+  margin-top: 25px;
   background-color: rgba(138, 146, 178, 0.6);
   padding: 5px 0;
   border-radius: 5px;
+}
+
+h4:hover{
+    border: 5px solid red;
+    background-color: blue;
+}
+
+#image {
+    margin-bottom: 50px;
+}
+
+.done {
+    font-size: 80px;
+}
+
+.done:hover {
+    border: 5px solid red;
+    background-color: blue;
 }
