@@ -4,7 +4,7 @@ $(document).ready(function () {
     var wrongTotal = 0
     var unansweredTotal = 0;
     var correctAnswer;
-    var timeRemaining = 10;
+    var timeRemaining = 15;
     var intervalID;
     var answered = false; //variable to stop the timer if user has clicked an answer
     var indexQs = 0;
@@ -84,32 +84,30 @@ $(document).ready(function () {
 
 
     function loadQuestions() {
-        answered = false; // will allow timeRemaining to be pushed back to <h5> after round reset....else statement in function timer()
-        timeRemaining = 10;
+        answered = false; 
+        timeRemaining = 15;
         intervalID = setInterval(timer, 1000);
         if (answered === false) {
             timer();
         }
         correctAnswer = gameObj[indexQs].answer;
         var question = gameObj[indexQs].question;
-        $(".question").html(question);
-        for (var i = 0; i < 4; i++) {
+        $(".question").html(question); //present trivia question
+        for (var i = 0; i < 4; i++) { //present answer options for question
             var option = gameObj[indexQs].options[i];
             $("#options").append("<h4 class=optionsAll id=" + i + ">" + option + "</h4>");
         }
 
         $("h4").click(function () {
-            var id = $(this).attr('id');
-            //console.log("Id is: " + id);
-            //console.log("Correct Answer is: " + correctAnswer);
+            var id = $(this).attr("id");
             if (id === correctAnswer) {
                 answered = true; // stops the timer
-                $(".question").text("TOUCHDOWN!! The Answer is: " + gameObj[indexQs].options[id]);
+                $(".question").text("TOUCHDOWN!! You are correct: " + gameObj[indexQs].options[id]);
                 correctTotal++;
                 reset();
             } else {
                 answered = true; //stops timer
-                $(".question").text("SACKED!! The Answer is: " + gameObj[indexQs].options[correctAnswer]);
+                $(".question").text("SACKED!! You Are Wrong - The Answer is: " + gameObj[indexQs].options[correctAnswer]);
                 wrongTotal++;
                 reset();
             }
@@ -132,7 +130,7 @@ $(document).ready(function () {
 
     function unAnswered() {
         unansweredTotal++;
-        $(".question").text("Out of time! The answer is: " + gameObj[indexQs].options[correctAnswer]);
+        $(".question").text("Delay of Game Penalty! The answer is: " + gameObj[indexQs].options[correctAnswer]);
         reset();
     }
 
