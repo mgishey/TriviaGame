@@ -187,3 +187,9 @@ $(document).ready(function () {
 
 
 });
+
+// The app works for two games and then everything goes haywire.  It seems that 
+// the Start Over button is not going away when clicked.  Therefore it works for 
+// the 2nd game but not the third. During the third game set it looks like 2 versions
+// of the game are running at the same time.  I tried finding a way to rectify this
+// problem but ran out of time. I tried the remove and empty methods but neither worked.
